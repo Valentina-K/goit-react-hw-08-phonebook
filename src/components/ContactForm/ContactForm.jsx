@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import { customAlphabet } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-//import Form from './ContactForm.styled';
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+  Button,
+} from '@chakra-ui/react';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 
@@ -45,10 +52,10 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormControl onSubmit={handleSubmit}>
       <div>
-        <label htmlFor={nameInput}>Name</label>
-        <input
+        <FormLabel htmlFor={nameInput}>Name</FormLabel>
+        <Input
           type="text"
           name="name"
           value={name}
@@ -60,8 +67,8 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor={phoneInput}>Number</label>
-        <input
+        <FormLabel htmlFor={phoneInput}>Number</FormLabel>
+        <Input
           type="tel"
           name="phone"
           value={number}
@@ -72,8 +79,8 @@ const ContactForm = () => {
           onChange={handleChange}
         />
       </div>
-      <button type="submit">Add contact</button>
-    </form>
+      <Button type="submit">Add contact</Button>
+    </FormControl>
   );
 };
 
