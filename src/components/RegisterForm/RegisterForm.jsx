@@ -1,8 +1,16 @@
 import { useDispatch } from 'react-redux';
+import { FormLabel, Input, Button } from '@chakra-ui/react';
+import { customAlphabet } from 'nanoid';
 import { register } from 'redux/auth/operations';
+
+const nanoid = customAlphabet('1234567890id-', 5);
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+
+  const nameInput = nanoid();
+  const emailInput = nanoid();
+  const passwordInput = nanoid();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -19,19 +27,19 @@ export const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
+      <FormLabel>
         Username
-        <input type="text" name="name" />
-      </label>
-      <label>
+        <Input id={nameInput} type="text" name="name" />
+      </FormLabel>
+      <FormLabel>
         Email
-        <input type="email" name="email" />
-      </label>
-      <label>
+        <Input id={emailInput} type="email" name="email" />
+      </FormLabel>
+      <FormLabel>
         Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
+        <Input id={passwordInput} type="password" name="password" />
+      </FormLabel>
+      <Button type="submit">Register</Button>
     </form>
   );
 };
