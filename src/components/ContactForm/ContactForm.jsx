@@ -49,6 +49,7 @@ const ContactForm = () => {
       <div>
         <FormLabel htmlFor={nameInput}>Name</FormLabel>
         <Input
+          w="50%"
           type="text"
           name="name"
           value={name}
@@ -62,6 +63,7 @@ const ContactForm = () => {
       <div>
         <FormLabel htmlFor={phoneInput}>Number</FormLabel>
         <Input
+          w="50%"
           type="tel"
           name="phone"
           value={number}

@@ -5,8 +5,13 @@ import { useAuth } from 'hooks';
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />}>
-      <BreadcrumbItem>
+    <Breadcrumb
+      spacing="8px"
+      separator={<ChevronRightIcon color="gray.500" />}
+      fontWeight="700"
+      fontSize="24"
+    >
+      <BreadcrumbItem isCurrentPage>
         <BreadcrumbLink as={NavLink} to="/">
           Home
         </BreadcrumbLink>

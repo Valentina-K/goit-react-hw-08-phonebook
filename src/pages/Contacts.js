@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Heading } from '@chakra-ui/react';
 import ContactForm from "components/ContactForm/ContactForm";
 import ContactList from "components/ContactList/ContactList";
 import Filter from "components/Filter/Filter";
@@ -20,9 +21,9 @@ const Contacts = () => {
             <Helmet>
                 <title>Contacts</title>
             </Helmet>
-            <h1>Phonebook</h1>
+            <Heading mb={8}>Phonebook</Heading>
             <ContactForm />
-            <h2>Contacts</h2>
+            <Heading mb={6}>Contacts</Heading>
             <Filter />
             {isLoading && !error && <Loader />}
             <ContactList />

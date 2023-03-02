@@ -8,7 +8,7 @@ import {
 export const AuthNav = () => {
   return (
     <Flex>
-      <Breadcrumb>
+      <Breadcrumb fontWeight="500" fontSize="18">
         <BreadcrumbItem>
           <BreadcrumbLink as={NavLink} to="/register" mr="2">
             Register
