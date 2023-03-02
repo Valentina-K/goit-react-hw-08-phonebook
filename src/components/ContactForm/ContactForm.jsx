@@ -1,14 +1,7 @@
 import { useState } from 'react';
 import { customAlphabet } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input,
-  Button,
-} from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 
