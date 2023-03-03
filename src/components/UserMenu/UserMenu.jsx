@@ -17,7 +17,7 @@ export const UserMenu = () => {
       >
         Welcome, {user.name}
       </Text>
-      <HiUser size={32} color="brown" />
+      <HiUser size={32} color="red" />
       <Button
         colorScheme={colorMode === 'dark' ? 'gray.200' : 'gray.600'}
         color={colorMode === 'dark' ? 'gray.200' : 'gray.600'}

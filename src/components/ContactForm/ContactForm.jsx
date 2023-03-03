@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import { customAlphabet } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { FormLabel, Input, Button } from '@chakra-ui/react';
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  InputGroup,
+  InputLeftElement,
+  Box,
+} from '@chakra-ui/react';
+import { PhoneIcon } from '@chakra-ui/icons';
+import { HiUser } from 'react-icons/hi';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 
@@ -45,24 +55,47 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <FormControl as="form" isRequired onSubmit={handleSubmit}>
+      <Box mb={4}>
         <FormLabel htmlFor={nameInput}>Name</FormLabel>
-        <Input
-          w="50%"
-          type="text"
-          name="name"
-          value={name}
-          id={nameInput}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          onChange={handleChange}
-        />
-      </div>
-      <div>
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<HiUser fill="lightgray" size={26} />}
+          />
+          <Input
+            type="text"
+            placeholder="Contact name"
+            name="name"
+            value={name}
+            id={nameInput}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+            onChange={handleChange}
+          />
+        </InputGroup>
+      </Box>
+      <Box mb={4}>
         <FormLabel htmlFor={phoneInput}>Number</FormLabel>
-        <Input
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<PhoneIcon color="gray.300" />}
+          />
+          <Input
+            type="tel"
+            placeholder="Phone number"
+            name="phone"
+            value={number}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+            id={phoneInput}
+            onChange={handleChange}
+          />
+        </InputGroup>
+        {/* <Input
           w="50%"
           type="tel"
           name="phone"
@@ -72,10 +105,12 @@ const ContactForm = () => {
           required
           id={phoneInput}
           onChange={handleChange}
-        />
-      </div>
-      <Button type="submit">Add contact</Button>
-    </form>
+        /> */}
+      </Box>
+      <Button type="submit" mb={2}>
+        Add contact
+      </Button>
+    </FormControl>
   );
 };
 
