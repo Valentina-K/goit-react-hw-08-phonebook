@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import {
+  FormControl,
   FormLabel,
   Input,
   InputGroup,
@@ -25,7 +26,8 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
+    console.log('name', e.target.elements.name.value);
+    const form = e.target;
     dispatch(
       register({
         name: form.elements.name.value,
@@ -37,21 +39,21 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <FormControl
+      as="form"
+      onSubmit={handleSubmit}
+      autoComplete="off"
+      isRequired
+    >
+      <FormLabel>Username</FormLabel>
       <InputGroup>
         <InputLeftElement />
-        <FormLabel>
-          Username
-          <Input id={nameInput} type="text" name="name" />
-        </FormLabel>
+        <Input id={nameInput} type="text" name="name" />
       </InputGroup>
-      <FormLabel>
-        Email
-        <Input id={emailInput} type="email" name="email" />
-      </FormLabel>
-      <FormLabel for={passwordInput} />
+      <FormLabel>Email</FormLabel>
+      <Input id={emailInput} type="email" name="email" />
+      <FormLabel>Password</FormLabel>
       <InputGroup size="md">
-        Password
         <Input
           id={passwordInput}
           name="password"
@@ -69,7 +71,9 @@ export const RegisterForm = () => {
         Password
         <Input id={passwordInput} type="password" name="password" />
       </FormLabel> */}
-      <Button type="submit">Register</Button>
-    </form>
+      <Button type="submit" my={2}>
+        Register
+      </Button>
+    </FormControl>
   );
 };

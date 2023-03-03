@@ -12,7 +12,7 @@ const ContactList = () => {
         <Contact
           key={contact.id}
           name={contact.name}
-          phone={contact.phone}
+          number={contact.number}
           id={contact.id}
         />
       ))}

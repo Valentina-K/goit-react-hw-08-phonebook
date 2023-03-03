@@ -1,4 +1,4 @@
-import { Box, Center, Container, Flex } from '@chakra-ui/react';
+import { Box, Container, Flex, useColorMode } from '@chakra-ui/react';
 import { Navigation } from 'components/Navigation/Navigation';
 import { AuthNav } from 'components/AuthNav/AuthNav';
 import { UserMenu } from 'components/UserMenu/UserMenu';
@@ -6,16 +6,20 @@ import { useAuth } from 'hooks';
 import { ColorModeSwitcher } from 'components/ColorModeSwitcher';
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
+  const { colorMode } = useColorMode();
   return (
-    <Box as="header" py="4">
+    <Box
+      as="header"
+      py="2"
+      mb={20}
+      bg={colorMode === 'dark' ? 'gray.600' : 'gray.200'}
+    >
       <Container maxW="container.lg">
         <Flex
           align="center"
           justify="space-between"
-          mb={26}
-          p="16px"
           borderBottom="1px"
-          borderColor="gray.200"
+          borderColor={colorMode === 'dark' ? 'gray.200' : 'gray.600'}
         >
           <Navigation />
           <Flex align="center">
