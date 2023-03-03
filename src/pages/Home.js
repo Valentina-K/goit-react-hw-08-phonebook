@@ -1,26 +1,22 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import { Box, Image, Heading, Flex } from "@chakra-ui/react";
+import '../images/phonebook.jpg';
 
 export default function Home() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Task manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1>
-    </div>
+    <Flex>
+      <Box w='50%'>
+        <Image src={require('../images/phonebook.jpg')} alt="phonebook"/>
+      </Box>
+      <Box textAlign={"center"} my='auto' px='4'>
+        <Heading as='h1' size='2xl' noOfLines={1} textTransform={"uppercase"} mb='16'>
+          Feel free to get
+          <Box as='span' size='2xl' noOfLines={1} textTransform={"uppercase"}>your phone book!</Box>
+        </Heading>
+        <Heading as='h2' size='xl' noOfLines={1}>Register and create new contacts,
+        <Box as='span' size='xl' noOfLines={1}> edit, delete!</Box></Heading>
+      </Box>
+    </Flex>
   );
 }
+//
+//
