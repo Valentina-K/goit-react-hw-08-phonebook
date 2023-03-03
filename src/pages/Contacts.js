@@ -23,10 +23,10 @@ const Contacts = () => {
                 <title>Contacts</title>
             </Helmet>
             <Container maxW="xl">
-                <Heading mb={8}>Phonebook</Heading>
+                <Heading as='h1' size='4xl' noOfLines={1} mb={4}>Phonebook</Heading>
                 <ContactForm />
                 <Divider mb={4} />
-                <Heading mb={6}>Contacts</Heading>
+                <Heading as='h2' size='3xl' noOfLines={1} mb={4}>Contacts</Heading>
                 <Filter />
                 <Divider mb={4} />
                 {isLoading && !error && <Loader />}

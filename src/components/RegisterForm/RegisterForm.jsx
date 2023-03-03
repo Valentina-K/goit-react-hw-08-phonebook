@@ -9,6 +9,8 @@ import {
   InputRightElement,
   Button,
 } from '@chakra-ui/react';
+import { AtSignIcon, LockIcon } from '@chakra-ui/icons';
+import { HiUser } from 'react-icons/hi';
 import { customAlphabet } from 'nanoid';
 import { register } from 'redux/auth/operations';
 
@@ -45,14 +47,37 @@ export const RegisterForm = () => {
       isRequired
     >
       <FormLabel>Username</FormLabel>
-      <InputGroup>
-        <InputLeftElement />
-        <Input id={nameInput} type="text" name="name" />
+      <InputGroup mb={4}>
+        <InputLeftElement
+          pointerEvents="none"
+          children={<HiUser fill="lightgray" size={26} />}
+        />
+        <Input
+          id={nameInput}
+          type="text"
+          placeholder="Enter name"
+          name="name"
+        />
       </InputGroup>
       <FormLabel>Email</FormLabel>
-      <Input id={emailInput} type="email" name="email" />
+      <InputGroup>
+        <InputLeftElement
+          pointerEvents="none"
+          children={<AtSignIcon color="gray.400" />}
+        />
+        <Input
+          id={emailInput}
+          type="email"
+          placeholder="Enter email"
+          name="email"
+        />
+      </InputGroup>
       <FormLabel>Password</FormLabel>
-      <InputGroup size="md">
+      <InputGroup size="md" mb={4}>
+        <InputLeftElement
+          pointerEvents="none"
+          children={<LockIcon color="gray.400" />}
+        />
         <Input
           id={passwordInput}
           name="password"
@@ -66,10 +91,6 @@ export const RegisterForm = () => {
           </Button>
         </InputRightElement>
       </InputGroup>
-      {/* <FormLabel>
-        Password
-        <Input id={passwordInput} type="password" name="password" />
-      </FormLabel> */}
       <Button type="submit" my={2}>
         Register
       </Button>

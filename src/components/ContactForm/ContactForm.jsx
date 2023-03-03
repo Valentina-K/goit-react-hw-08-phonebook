@@ -57,7 +57,9 @@ const ContactForm = () => {
   return (
     <FormControl as="form" isRequired onSubmit={handleSubmit}>
       <Box mb={4}>
-        <FormLabel htmlFor={nameInput}>Name</FormLabel>
+        <FormLabel htmlFor={nameInput} fontSizes="large">
+          Name
+        </FormLabel>
         <InputGroup>
           <InputLeftElement
             pointerEvents="none"
@@ -77,7 +79,9 @@ const ContactForm = () => {
         </InputGroup>
       </Box>
       <Box mb={4}>
-        <FormLabel htmlFor={phoneInput}>Number</FormLabel>
+        <FormLabel htmlFor={phoneInput} fontSizes="large">
+          Number
+        </FormLabel>
         <InputGroup>
           <InputLeftElement
             pointerEvents="none"
@@ -95,17 +99,6 @@ const ContactForm = () => {
             onChange={handleChange}
           />
         </InputGroup>
-        {/* <Input
-          w="50%"
-          type="tel"
-          name="phone"
-          value={number}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          id={phoneInput}
-          onChange={handleChange}
-        /> */}
       </Box>
       <Button type="submit" mb={2}>
         Add contact

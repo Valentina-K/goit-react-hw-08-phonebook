@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Contact from 'components/Contact/Contact';
-//import { List } from './ContactList.styled';
+import { List } from '@chakra-ui/react';
 import { selectContactsList } from 'redux/contacts/selectors';
 
 const ContactList = () => {
   const contactsList = useSelector(selectContactsList);
   return (
-    <ul>
+    <List spacing={3}>
       {contactsList.map(contact => (
         <Contact
           key={contact.id}
@@ -16,7 +16,7 @@ const ContactList = () => {
           id={contact.id}
         />
       ))}
-    </ul>
+    </List>
   );
 };
 

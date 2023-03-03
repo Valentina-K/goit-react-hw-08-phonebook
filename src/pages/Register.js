@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet';
+import { Container } from '@chakra-ui/react';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 export default function Register() {
@@ -7,7 +8,9 @@ export default function Register() {
       <Helmet>
         <title>Registration</title>
       </Helmet>
-      <RegisterForm />
+      <Container maxW="xl">
+        <RegisterForm />
+      </Container>
     </div>
   );
 }

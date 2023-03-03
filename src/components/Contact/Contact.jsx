@@ -1,24 +1,29 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { IconButton } from '@chakra-ui/react';
+import { IconButton, ListItem, ListIcon } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
+import { BsEmojiSmile } from 'react-icons/bs';
 import { deleteContact } from 'redux/contacts/operations';
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
   return (
-    <li>
-      <span>
-        {name}: {number}
-      </span>
+    <ListItem fontSize="2xl">
+      <ListIcon
+        pointerEvents="none"
+        children={<BsEmojiSmile fill="red" size={24} />}
+        mr={2}
+      />
+      {name}: {number}
       <IconButton
+        ml={4}
         variant="outline"
         aria-label="delete label"
         icon={<DeleteIcon size={32} color="brown" />}
-        size="lg"
+        size="md"
         colorScheme="gray"
         onClick={() => dispatch(deleteContact(id))}
       />
-    </li>
+    </ListItem>
   );
 };
 
