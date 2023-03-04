@@ -8,8 +8,9 @@ import {
   InputLeftElement,
   InputRightElement,
   Button,
+  IconButton,
 } from '@chakra-ui/react';
-import { AtSignIcon, LockIcon } from '@chakra-ui/icons';
+import { AtSignIcon, LockIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { HiUser } from 'react-icons/hi';
 import { customAlphabet } from 'nanoid';
 import { register } from 'redux/auth/operations';
@@ -86,9 +87,11 @@ export const RegisterForm = () => {
           placeholder="Enter password"
         />
         <InputRightElement width="4.5rem">
-          <Button h="1.75rem" size="sm" onClick={handleClick}>
-            {show ? 'Hide' : 'Show'}
-          </Button>
+          <IconButton
+            aria-label="show"
+            onClick={handleClick}
+            icon={show ? <ViewOffIcon /> : <ViewIcon />}
+          />
         </InputRightElement>
       </InputGroup>
       <Button type="submit" my={2}>

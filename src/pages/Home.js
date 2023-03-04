@@ -12,7 +12,7 @@ export default function Home() {
           Feel free to get
           <Box as='span' size='2xl' noOfLines={1} textTransform={"uppercase"}>your phone book!</Box>
         </Heading>
-        <Heading as='h2' size='xl' noOfLines={1}>Register and create new contacts,
+        <Heading as='h2' size='lg' noOfLines={1}>Register, create new contacts,
         <Box as='span' size='xl' noOfLines={1}> edit, delete!</Box></Heading>
       </Box>
     </Flex>

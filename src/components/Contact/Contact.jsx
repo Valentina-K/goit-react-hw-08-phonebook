@@ -10,8 +10,8 @@ const Contact = ({ name, number, id }) => {
     <ListItem fontSize="2xl">
       <ListIcon
         pointerEvents="none"
-        children={<BsEmojiSmile fill="red" size={24} />}
-        mr={2}
+        children={<BsEmojiSmile fill="green" size={24} />}
+        mr={4}
       />
       {name}: {number}
       <IconButton

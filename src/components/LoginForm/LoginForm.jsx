@@ -20,7 +20,6 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
-  console.log(show);
   const emailInput = nanoid();
   const passwordInput = nanoid();
 

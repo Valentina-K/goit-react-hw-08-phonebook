@@ -13,7 +13,6 @@ const Contacts = () => {
     const dispatch = useDispatch();
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
-    console.log(Divider)
      useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -31,7 +30,6 @@ const Contacts = () => {
                 <Divider mb={4} />
                 {isLoading && !error && <Loader />}
                 <ContactList />
-                <Divider />
             </Container>
         </>
     )

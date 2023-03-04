@@ -44,6 +44,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      console.log(error.response.request.status)
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -76,7 +77,7 @@ export const refreshUser = createAsyncThunk(
 
     if (persistedToken === null) {
       // If there is no token, exit without performing any request
-      return thunkAPI.rejectWithValue('Unable to fetch user');
+      return thunkAPI.rejectWithValue(null); //'Unable to fetch user'
     }
 
     try {
@@ -85,6 +86,7 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
+      console.log(error.response.request.status)
       return thunkAPI.rejectWithValue(error.message);
     }
   }

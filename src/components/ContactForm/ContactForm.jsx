@@ -14,6 +14,7 @@ import { PhoneIcon } from '@chakra-ui/icons';
 import { HiUser } from 'react-icons/hi';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
+import toast from 'react-hot-toast';
 
 const nanoid = customAlphabet('1234567890id-', 5);
 
@@ -49,7 +50,7 @@ const ContactForm = () => {
     if (!contacts.some(contact => contact.name === name)) {
       dispatch(addContact({ name, number }));
     } else {
-      alert(`${name} is already in contacts`);
+      toast.error(`${name} is already in contacts`);
     }
     reset();
   };
@@ -57,7 +58,7 @@ const ContactForm = () => {
   return (
     <FormControl as="form" isRequired onSubmit={handleSubmit}>
       <Box mb={4}>
-        <FormLabel htmlFor={nameInput} fontSizes="large">
+        <FormLabel htmlFor={nameInput} fontsizes="large">
           Name
         </FormLabel>
         <InputGroup>
@@ -79,7 +80,7 @@ const ContactForm = () => {
         </InputGroup>
       </Box>
       <Box mb={4}>
-        <FormLabel htmlFor={phoneInput} fontSizes="large">
+        <FormLabel htmlFor={phoneInput} fontsizes="large">
           Number
         </FormLabel>
         <InputGroup>
