@@ -74,7 +74,7 @@ export const RegisterForm = () => {
         />
       </InputGroup>
       <FormLabel>Password</FormLabel>
-      <InputGroup size="md" mb={4}>
+      <InputGroup mb={4}>
         <InputLeftElement
           pointerEvents="none"
           children={<LockIcon color="gray.400" />}
@@ -82,11 +82,10 @@ export const RegisterForm = () => {
         <Input
           id={passwordInput}
           name="password"
-          pr="4.5rem"
           type={show ? 'text' : 'password'}
           placeholder="Enter password"
         />
-        <InputRightElement width="4.5rem">
+        <InputRightElement>
           <IconButton
             aria-label="show"
             onClick={handleClick}
