@@ -6,16 +6,14 @@ import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import { useAuth } from 'hooks';
 
 export default function Register() {
-  const { authError } = useAuth();
+  const { registerError,refreshError } = useAuth();
+ 
   useEffect(() => {
-    
-  },[])
-  useEffect(() => {
-    if (authError)
+    if (registerError || refreshError)
     {
       toast.error('The user is not registered. Try changing your email.',
       { id: 'register' });}
-  },[authError])
+  },[registerError, refreshError])
   return (
     <div>
       <Helmet>

@@ -6,13 +6,13 @@ import toast,{Toaster} from 'react-hot-toast';
 import { useAuth } from 'hooks';
 
 export default function Login() {
-  const { authError } = useAuth();
+  const { loginError } = useAuth();
   useEffect(() => {
-    if (authError)
+    if (loginError)
     {
       toast.error('The user with this login and password does not exist',
       { id: 'login' });}
-  },[authError])
+  },[loginError])
   
   return (
     <div>

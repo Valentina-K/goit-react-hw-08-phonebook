@@ -84,6 +84,8 @@ export const RegisterForm = () => {
           name="password"
           type={show ? 'text' : 'password'}
           placeholder="Enter password"
+          minLength={7}
+          maxLength={16}
         />
         <InputRightElement>
           <IconButton

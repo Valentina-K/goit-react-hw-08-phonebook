@@ -8,7 +8,9 @@ export const authSlice = createSlice({
         token: null,
         isRefreshing: false,
         isLoggedIn: false,
-        error:null,
+        error: null,
+        registerErr: null,
+        loginErr:null,
     },
     extraReducers: (builder) => {
         builder
@@ -16,14 +18,14 @@ export const authSlice = createSlice({
                 state.user = action.payload.user;
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
-                state.error = null;
+                state.loginErr = null;
             })
             .addCase(logIn.pending, (state) => {
                 state.isLoggedIn = false;
-                state.error = null;
+                state.loginErr = null;
             })
             .addCase(logIn.rejected, (state, action) => {
-                state.error = action.payload;
+                state.loginErr = action.payload;
                 state.isLoggedIn = false;
             })
             .addCase(logOut.fulfilled, (state) => {
@@ -31,19 +33,21 @@ export const authSlice = createSlice({
                 state.token = null;
                 state.isLoggedIn = false;
                 state.error = null;
+                state.registerErr = null;
+                state.loginErr = null;
              })
             .addCase(register.fulfilled, (state, action) => {
                 state.user = action.payload.user;
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
-                state.error = null;
+                state.registerErr = null;
             }) 
             .addCase(register.pending, (state) => {
                 state.isLoggedIn = false;
-                state.error = null;
+                state.registerErr = null;
             })
             .addCase(register.rejected, (state, action) => {
-                state.error = action.payload;
+                state.registerErr = action.payload;
                 state.isLoggedIn = false;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
