@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Heading,Container,Divider } from '@chakra-ui/react';
 import ContactForm from "components/ContactForm/ContactForm";
@@ -31,6 +32,7 @@ const Contacts = () => {
                 {isLoading && !error && <Loader />}
                 <ContactList />
             </Container>
+            <Toaster position="top-center"/>
         </>
     )
 };
